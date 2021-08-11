@@ -27,4 +27,6 @@ appsettings.json
 local.settings.json
 
 .terraform
+*.tfstate
+*.tfstate.backup
 .vscode
