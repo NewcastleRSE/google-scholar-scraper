@@ -7,15 +7,15 @@ on:
     branches: [main]
 
 jobs:
-  build-client:
+  docker-build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
-    - name: Publish Client to Registry
+    - name: Build & Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         registry: googlescholarregistry.azurecr.io
-        name: agooglescholarregistry.azurecr.io/gs-scraper
+        name: googlescholarregistry.azurecr.io/gs-scraper
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
