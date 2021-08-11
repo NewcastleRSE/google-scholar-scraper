@@ -1,0 +1,22 @@
+# This workflow will do a rebuild of the docker image, publish to the container registry and deploy the new version
+
+name: Build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-client:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Publish Client to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        registry: googlescholarregistry.azurecr.io
+        name: agooglescholarregistry.azurecr.io/gs-scraper
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+        tag_semver: true
