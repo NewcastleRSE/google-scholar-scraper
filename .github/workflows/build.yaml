@@ -13,7 +13,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
     - name: Build & Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         registry: googlescholarregistry.azurecr.io
         name: googlescholarregistry.azurecr.io/gs-scraper
